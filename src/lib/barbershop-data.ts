@@ -2,7 +2,7 @@
 export const BARBER_SHOP = {
   name: "Dom Barbearia",
   slogan: "Tradição, estilo e precisão em cada corte.",
-  phone: "5511999999999", // Substitua pelo número real com DDD (ex: 5511987654321)
+  phone: "5534993357833", // Número real com DDI e DDD
   address: "Rua dos Barbeiros, 123 — Centro, São Paulo/SP",
   hours: [
     { day: "Segunda a Sexta", time: "09h às 20h" },
@@ -10,7 +10,7 @@ export const BARBER_SHOP = {
     { day: "Domingo", time: "Fechado" },
   ],
   social: {
-    instagram: "https://instagram.com/dombarbearia",
+    instagram: "https://www.instagram.com/_freire_02/",
     facebook: "https://facebook.com/dombarbearia",
   },
   about: {

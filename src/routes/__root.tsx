@@ -75,22 +75,58 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
+// Ajuste para a URL final do seu site (domínio conectado no Vercel)
+const SITE_URL = "https://SEU-DOMINIO.vercel.app";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "HairSalon",
+  name: BARBER_SHOP.name,
+  description: BARBER_SHOP.slogan,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: BARBER_SHOP.address,
+  },
+  telephone: `+${BARBER_SHOP.phone}`,
+  url: SITE_URL,
+  sameAs: [BARBER_SHOP.social.instagram, BARBER_SHOP.social.facebook],
+  openingHoursSpecification: BARBER_SHOP.hours.map((h) => ({
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: h.day,
+    description: h.time,
+  })),
+};
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: `${BARBER_SHOP.name} — Barbearia Clássica` },
-      { name: "description", content: `${BARBER_SHOP.slogan} Agende seu horário pelo WhatsApp.` },
+      { title: `${BARBER_SHOP.name} — Barbearia em Uberlândia | Cortes e Barba` },
+      {
+        name: "description",
+        content: `${BARBER_SHOP.slogan} Agende seu horário pelo WhatsApp. ${BARBER_SHOP.address}.`,
+      },
+      {
+        name: "keywords",
+        content: "barbearia, corte de cabelo, barba, degradê, barbearia perto de mim, agendamento barbearia",
+      },
+      { name: "robots", content: "index, follow" },
       { property: "og:title", content: `${BARBER_SHOP.name} — Barbearia Clássica` },
       { property: "og:description", content: BARBER_SHOP.slogan },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:locale", content: "pt_BR" },
+      { property: "og:site_name", content: BARBER_SHOP.name },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: `${BARBER_SHOP.name} — Barbearia Clássica` },
+      { name: "twitter:description", content: BARBER_SHOP.slogan },
       { name: "author", content: BARBER_SHOP.name },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "canonical", href: SITE_URL },
       {
         rel: "preconnect",
         href: "https://fonts.googleapis.com",
@@ -103,6 +139,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(structuredData),
       },
     ],
   }),

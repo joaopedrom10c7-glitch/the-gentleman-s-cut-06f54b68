@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Menu, X, Scissors } from "lucide-react";
+import { Menu, X, Scissors, Instagram, Facebook } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { BARBER_SHOP } from "@/lib/barbershop-data";
 
@@ -50,15 +50,36 @@ export function Header() {
           })}
         </nav>
 
-        {/* Mobile menu button */}
-        <button
-          type="button"
-          onClick={() => setMobileOpen((v) => !v)}
-          className="grid h-10 w-10 shrink-0 place-items-center rounded-md border border-border bg-secondary text-foreground md:hidden"
-          aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
-        >
-          {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        {/* Social icons + mobile menu button */}
+        <div className="flex items-center gap-2">
+          <a
+            href={BARBER_SHOP.social.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden h-9 w-9 shrink-0 place-items-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary md:grid"
+            aria-label="Instagram"
+          >
+            <Instagram className="h-4 w-4" />
+          </a>
+          <a
+            href={BARBER_SHOP.social.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden h-9 w-9 shrink-0 place-items-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary md:grid"
+            aria-label="Facebook"
+          >
+            <Facebook className="h-4 w-4" />
+          </a>
+
+          <button
+            type="button"
+            onClick={() => setMobileOpen((v) => !v)}
+            className="grid h-10 w-10 shrink-0 place-items-center rounded-md border border-border bg-secondary text-foreground md:hidden"
+            aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
+          >
+            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile navigation */}
@@ -83,6 +104,26 @@ export function Header() {
                 </Link>
               );
             })}
+            <div className="mt-2 flex items-center gap-3 border-t border-border/50 px-3 pt-3">
+              <a
+                href={BARBER_SHOP.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="grid h-9 w-9 place-items-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+                aria-label="Instagram"
+              >
+                <Instagram className="h-4 w-4" />
+              </a>
+              <a
+                href={BARBER_SHOP.social.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="grid h-9 w-9 place-items-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+                aria-label="Facebook"
+              >
+                <Facebook className="h-4 w-4" />
+              </a>
+            </div>
           </nav>
         </div>
       )}
