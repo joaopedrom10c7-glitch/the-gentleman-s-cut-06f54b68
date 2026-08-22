@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://SEU-DOMINIO.vercel.app/sitemap.xml
+Sitemap: https://the-gentleman-rouge.vercel.app/
