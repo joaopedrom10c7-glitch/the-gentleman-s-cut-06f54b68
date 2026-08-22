@@ -122,6 +122,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:title", content: `${BARBER_SHOP.name} — Barbearia Clássica` },
       { name: "twitter:description", content: BARBER_SHOP.slogan },
       { name: "author", content: BARBER_SHOP.name },
+      <meta><meta name="google-site-verification" content="f73bdvMnsefmaeGV1JypNoLOBGMaJ_TLUm8rFTz-S3k" /></meta>
     ],
     links: [
       { rel: "stylesheet", href: appCss },
