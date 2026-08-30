@@ -22,7 +22,7 @@ export const Route = createFileRoute("/contact")({
 function ContactPage() {
   const whatsappLink = buildWhatsAppLink(
     BARBER_SHOP.phone,
-    "Olá! Gostaria de agendar um horário na Dom Barbearia."
+    "Olá! Gostaria de agendar um horário na Diego Barbearia."
   );
 
   return (
