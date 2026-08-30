@@ -1,9 +1,9 @@
 // Configurações da barbearia — edite aqui para personalizar
 export const BARBER_SHOP = {
-  name: "Dom Barbearia",
-  slogan: "Tradição, estilo e precisão em cada corte.",
-  phone: "5534993357833", // Número real com DDI e DDD
-  address: "Rua dos Barbeiros, 123 — Centro, São Paulo/SP",
+  name: "Diego Barbearia",
+  slogan: "Tradição, estilo e cuidado masculino em cada detalhe.",
+  phone: "553499979244", // Número real com DDI e DDD
+  address: "R. Paulo Frontin, 993 - Alto Umuarama, Uberlândia - MG, 38405-283",
   hours: [
     { day: "Segunda a Sexta", time: "09h às 20h" },
     { day: "Sábado", time: "09h às 18h" },
@@ -11,12 +11,12 @@ export const BARBER_SHOP = {
   ],
   social: {
     instagram: "https://www.instagram.com/_freire_02/",
-    facebook: "https://facebook.com/dombarbearia",
+    facebook: "https://facebook.com/diegobarbearia",
   },
   about: {
     title: "Nossa História",
     paragraphs: [
-      "Fundada em 2015, a Dom Barbearia nasceu da paixão pela arte da barbearia clássica. Combinamos técnicas tradicionais com as tendências mais atuais para entregar um visual impecável a cada cliente.",
+      "Fundada em 2015, a Diego Barbearia nasceu da paixão pela arte da barbearia clássica. Combinamos técnicas tradicionais com as tendências mais atuais para entregar um visual impecável a cada cliente.",
       "Nosso espaço foi pensado para proporcionar uma experiência completa de cuidado pessoal: ambiente acolhedor, profissionais experientes e atenção aos detalhes. Aqui, cada corte é uma obra de arte.",
     ],
   },
@@ -68,6 +68,58 @@ export const SERVICES: Service[] = [
   },
 ];
 
+export type Product = {
+  id: string;
+  name: string;
+  description: string;
+  price: string;
+  image: string;
+  category: "pomada" | "finalizador" | "kit";
+};
+
+export const PRODUCTS: Product[] = [
+  {
+    id: "pomada-matte",
+    name: "Pomada Matte Diego",
+    description: "Fixação média, acabamento seco e textura natural. Ideal para cortes modernos e desconstruídos.",
+    price: "R$ 49,90",
+    image: "/images/product-pomada-matte.jpg",
+    category: "pomada",
+  },
+  {
+    id: "pomada-brilliance",
+    name: "Pomada Brilho Clássico",
+    description: "Fixação leve a média com brilho discreto. Perfeita para penteados sociais e retrôs.",
+    price: "R$ 54,90",
+    image: "/images/product-pomada-brilliance.jpg",
+    category: "pomada",
+  },
+  {
+    id: "pomada-forte",
+    name: "Pomada Forte Hold",
+    description: "Máxima fixação e controle o dia todo. Não resseca e sai facilmente com a lavagem.",
+    price: "R$ 59,90",
+    image: "/images/product-pomada-forte.jpg",
+    category: "pomada",
+  },
+  {
+    id: "finalizador-spray",
+    name: "Spray Texturizador",
+    description: "Volume e definição instantâneos. Fixação flexível para looks naturais.",
+    price: "R$ 44,90",
+    image: "/images/product-spray.jpg",
+    category: "finalizador",
+  },
+  {
+    id: "kit-cuidado",
+    name: "Kit Cuidado do Cabelo",
+    description: "Combo com shampoo, condicionador e pomada matte. Tudo que você precisa para manter o estilo.",
+    price: "R$ 129,90",
+    image: "/images/product-kit.jpg",
+    category: "kit",
+  },
+];
+
 export const GALLERY_IMAGES = [
   { id: "1", src: "/images/gallery-1.jpg", alt: "Corte degradê moderno" },
   { id: "2", src: "/images/gallery-2.jpg", alt: "Barba bem cuidada" },
@@ -88,4 +140,8 @@ export function buildWhatsAppLink(
 
 export function serviceBookingMessage(serviceName: string): string {
   return `Olá! Gostaria de agendar um ${serviceName}. Qual a disponibilidade de horário?`;
+}
+
+export function productOrderMessage(productName: string): string {
+  return `Olá! Tenho interesse no produto ${productName}. Ele está disponível?`;
 }

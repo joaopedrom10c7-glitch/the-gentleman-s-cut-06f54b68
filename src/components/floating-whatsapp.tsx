@@ -4,7 +4,7 @@ import { buildWhatsAppLink, BARBER_SHOP } from "@/lib/barbershop-data";
 export function FloatingWhatsApp() {
   const link = buildWhatsAppLink(
     BARBER_SHOP.phone,
-    "Olá! Gostaria de agendar um horário na Dom Barbearia."
+    "Olá! Gostaria de agendar um horário na Diego Barbearia."
   );
 
   return (

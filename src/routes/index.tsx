@@ -1,15 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Clock, MapPin, Scissors, Star } from "lucide-react";
+import { ArrowRight, Clock, MapPin, Star } from "lucide-react";
 import { ServiceCard } from "@/components/service-card";
-import { BARBER_SHOP, SERVICES, buildWhatsAppLink } from "@/lib/barbershop-data";
+import { ProductCard } from "@/components/product-card";
+import { BARBER_SHOP, PRODUCTS, SERVICES, buildWhatsAppLink } from "@/lib/barbershop-data";
+import logoAsset from "@/assets/diego-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: `${BARBER_SHOP.name} — Barbearia Clássica em São Paulo` },
+      { title: `${BARBER_SHOP.name} — Barbearia Clássica em Uberlândia` },
       {
         name: "description",
-        content: `${BARBER_SHOP.slogan} Cortes sociais, degradês, barba e muito mais. Agende pelo WhatsApp.`,
+        content: `${BARBER_SHOP.slogan} Cortes sociais, degradês, barba, pomadas e muito mais. Agende pelo WhatsApp.`,
       },
       { property: "og:title", content: `${BARBER_SHOP.name} — Barbearia Clássica` },
       { property: "og:description", content: BARBER_SHOP.slogan },
@@ -22,9 +24,10 @@ export const Route = createFileRoute("/")({
 
 function HomePage() {
   const featuredServices = SERVICES.slice(0, 3);
+  const featuredProducts = PRODUCTS.slice(0, 3);
   const whatsappLink = buildWhatsAppLink(
     BARBER_SHOP.phone,
-    "Olá! Gostaria de agendar um horário na Dom Barbearia."
+    "Olá! Gostaria de agendar um horário na Diego Barbearia."
   );
 
   return (
@@ -42,9 +45,15 @@ function HomePage() {
         </div>
 
         <div className="relative z-10 mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
-            <Scissors className="h-4 w-4" />
-            <span>Barbearia Clássica</span>
+          <div className="mb-6 flex flex-col items-center gap-4">
+            <img
+              src={logoAsset.url}
+              alt={`Logo ${BARBER_SHOP.name}`}
+              className="mx-auto h-24 w-auto sm:h-32"
+            />
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
+              <span>Barbearia Clássica</span>
+            </span>
           </div>
           <h1 className="font-heading text-5xl leading-[1.1] font-bold text-foreground sm:text-6xl md:text-7xl">
             {BARBER_SHOP.name}
@@ -116,9 +125,40 @@ function HomePage() {
         </div>
       </section>
 
-      {/* About preview */}
+      {/* Products preview */}
       <section className="section-padding border-y border-border/50 bg-card">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
+            <div>
+              <span className="text-sm font-semibold uppercase tracking-wider text-primary">
+                Loja
+              </span>
+              <h2 className="mt-2 font-heading text-3xl text-foreground sm:text-4xl">
+                Pomadas & Produtos
+              </h2>
+              <p className="mt-2 max-w-xl text-muted-foreground">
+                Produtos selecionados para manter seu estilo em dia. Compre pelo WhatsApp.
+              </p>
+            </div>
+            <Link
+              to="/products"
+              className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
+            >
+              Ver todos <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {featuredProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About preview */}
+      <section className="section-padding mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid items-center gap-10 lg:grid-cols-2">
           <div className="order-2 lg:order-1">
             <img
               src="/images/gallery-3.jpg"
@@ -158,7 +198,7 @@ function HomePage() {
               Pronto para renovar o visual?
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-              Agende seu horário agora mesmo pelo WhatsApp e venha viver a experiência Dom
+              Agende seu horário agora mesmo pelo WhatsApp e venha viver a experiência Diego
               Barbearia.
             </p>
             <a

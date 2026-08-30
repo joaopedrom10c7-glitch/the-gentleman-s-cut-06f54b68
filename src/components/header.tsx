@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Menu, X, Scissors, Instagram, Facebook } from "lucide-react";
+import { Menu, X, Instagram, Facebook } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { BARBER_SHOP } from "@/lib/barbershop-data";
+import logoAsset from "@/assets/diego-logo.png.asset.json";
 
 const NAV_LINKS = [
   { to: "/", label: "Início" },
   { to: "/services", label: "Serviços" },
+  { to: "/products", label: "Produtos" },
   { to: "/gallery", label: "Galeria" },
   { to: "/about", label: "Sobre" },
   { to: "/contact", label: "Contato" },
@@ -19,10 +21,12 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/50 bg-background/95 backdrop-blur-md">
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-primary/30 bg-primary/10">
-            <Scissors className="h-5 w-5 text-primary" />
-          </div>
+        <Link to="/" className="flex items-center gap-3">
+          <img
+            src={logoAsset.url}
+            alt={`Logo ${BARBER_SHOP.name}`}
+            className="h-10 w-auto"
+          />
           <span className="font-heading text-xl font-semibold tracking-tight text-foreground">
             {BARBER_SHOP.name}
           </span>
