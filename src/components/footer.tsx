@@ -1,11 +1,12 @@
 import { Link } from "@tanstack/react-router";
-import { Instagram, Facebook, Phone, MapPin, Clock, Scissors } from "lucide-react";
+import { Instagram, Facebook, Phone, MapPin, Clock } from "lucide-react";
 import { BARBER_SHOP, buildWhatsAppLink } from "@/lib/barbershop-data";
+import logoAsset from "@/assets/diego-logo.png.asset.json";
 
 export function Footer() {
   const whatsappLink = buildWhatsAppLink(
     BARBER_SHOP.phone,
-    "Olá! Gostaria de mais informações sobre a Dom Barbearia."
+    "Olá! Gostaria de mais informações sobre a Diego Barbearia."
   );
 
   return (
@@ -14,10 +15,12 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-3">
           {/* Brand */}
           <div>
-            <Link to="/" className="flex items-center gap-2">
-              <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-primary/30 bg-primary/10">
-                <Scissors className="h-5 w-5 text-primary" />
-              </div>
+            <Link to="/" className="flex items-center gap-3">
+              <img
+                src={logoAsset.url}
+                alt={`Logo ${BARBER_SHOP.name}`}
+                className="h-10 w-auto"
+              />
               <span className="font-heading text-xl font-semibold text-foreground">
                 {BARBER_SHOP.name}
               </span>
