@@ -5,14 +5,14 @@ export const BARBER_SHOP = {
   phone: "553499979244", // Número real com DDI e DDD
   address: "R. Paulo Frontin, 993 - Alto Umuarama, Uberlândia - MG, 38405-283",
   hours: [
-    { day: "Segunda a Sexta", time: "09h às 20h" },
-    { day: "Sábado", time: "09h às 18h" },
+    { day: "Segunda a Sexta", time: "08h às 20h" },
+    { day: "Sábado", time: "08h às 20h" },
     { day: "Domingo", time: "Fechado" },
   ],
   social: {
-    instagram: "https://www.instagram.com/_freire_02/",
-    facebook: "https://facebook.com/diegobarbearia",
-  },
+    instagram: ".",
+    facebook: ".",
+  },  
   about: {
     title: "Nossa História",
     paragraphs: [
