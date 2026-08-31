@@ -76,7 +76,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 // Ajuste para a URL final do seu site (domínio conectado no Vercel)
-const SITE_URL = "https://the-gentleman-rouge.vercel.app/";
+const SITE_URL = "https://the-gentleman-s-cut-06f54b68.vercel.app/";
 
 const structuredData = {
   "@context": "https://schema.org",
