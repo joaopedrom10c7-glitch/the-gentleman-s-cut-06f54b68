@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Facebook, Phone, MapPin, Clock } from "lucide-react";
 import { BARBER_SHOP, buildWhatsAppLink } from "@/lib/barbershop-data";
-import logoAsset from "@/assets/diego-logo.png.asset.json";
+import logonovapng from "../../public/logonova.png";
 
 export function Footer() {
   const whatsappLink = buildWhatsAppLink(
@@ -17,7 +17,7 @@ export function Footer() {
           <div>
             <Link to="/" className="flex items-center gap-3">
               <img
-                src={logoAsset.url}
+                src={logonovapng}
                 alt={`Logo ${BARBER_SHOP.name}`}
                 className="h-10 w-auto"
               />

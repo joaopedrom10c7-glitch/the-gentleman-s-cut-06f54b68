@@ -3,7 +3,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, X, Instagram, Facebook } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { BARBER_SHOP } from "@/lib/barbershop-data";
-import logoAsset from "@/assets/diego-logo.png.asset.json";
+import logonovapng from "../../public/logonova.png";
 
 const NAV_LINKS = [
   { to: "/", label: "Início" },
@@ -23,7 +23,7 @@ export function Header() {
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center gap-3">
           <img
-            src={logoAsset.url}
+            src={logonovapng}
             alt={`Logo ${BARBER_SHOP.name}`}
             className="h-10 w-auto"
           />

@@ -3,7 +3,7 @@ import { ArrowRight, Clock, MapPin, Star } from "lucide-react";
 import { ServiceCard } from "@/components/service-card";
 import { ProductCard } from "@/components/product-card";
 import { BARBER_SHOP, PRODUCTS, SERVICES, buildWhatsAppLink } from "@/lib/barbershop-data";
-import logoAsset from "@/assets/diego-logo.png.asset.json";
+import logonovapng from "../../public/logonova.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -47,7 +47,7 @@ function HomePage() {
         <div className="relative z-10 mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <div className="mb-6 flex flex-col items-center gap-4">
             <img
-              src={logoAsset.url}
+              src={logonovapng}
               alt={`Logo ${BARBER_SHOP.name}`}
               className="mx-auto h-24 w-auto sm:h-32"
             />

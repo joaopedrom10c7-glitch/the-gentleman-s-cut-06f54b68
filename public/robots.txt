@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://the-gentleman-rouge.vercel.app/
+Sitemap:https://the-gentleman-s-cut-06f54b68.vercel.app/

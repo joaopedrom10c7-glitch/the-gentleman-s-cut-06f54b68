@@ -126,7 +126,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.jpeg", type: "image/jpeg" },
+      { rel: "icon", href: "/public/logonova.png", type: "image/png" },
       { rel: "canonical", href: SITE_URL },
       {
         rel: "preconnect",
